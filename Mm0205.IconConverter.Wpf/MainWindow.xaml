@@ -7,6 +7,42 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="42"></RowDefinition>
+            <RowDefinition Height="5"></RowDefinition>
+            <RowDefinition Height="*" MinHeight="42"></RowDefinition>
+        </Grid.RowDefinitions>
 
+        <StackPanel Grid.Row="0">
+            <Grid Margin="8">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid IsSharedSizeScope="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="LabelWidth"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Content="対象のファイル/フォルダ"></Label>
+                    <TextBox Grid.Column="1" Margin="8,0,0,0" x:Name="TextBoxPath" FontSize="14" Padding="0"></TextBox>
+                    <Button Grid.Column="2" Content="フォルダ" Margin="8,0,0,0" x:Name="ButtonFolderReference" Click="ButtonFolderReference_OnClick"></Button>
+                    <Button Grid.Column="3" Content="ファイル" Margin="8,0,0,0" x:Name="ButtonFileReference" Click="ButtonFileReference_OnClick"></Button>
+                </Grid>
+
+
+                <Grid Grid.Row="2" Margin="8">
+                    <Button x:Name="ButtonExecute" Content="実行" Click="ButtonExecute_Click"/>
+                </Grid>
+            </Grid>
+        </StackPanel>
+
+        <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" />
+
+        <ListView Grid.Row="2"></ListView>
     </Grid>
 </Window>
